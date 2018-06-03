@@ -6,19 +6,28 @@ This library uses the Factory pattern to dynamically create UITableViewCells.. e
 {
 
     NSDictionary *dependencies = @{(id<NSCopying>)[VBSongFavouritingBehavior class]: [VBSongCellBehaviour class]};
-    _detailDeleteSongCellReuseId = [VBTableViewCellFactory reuseIdentifierWithRootType:VBRootCellTypeSwipable
-                                                                            behaviours:@[[VBSongCellBehaviour class],[VBRightDetailsButtonsCellBehaviour class],[VBRightDeleteButtonCellBehaviour class], [VBUnavailableSongCellBehaviour class], [VBSongFavouritingBehavior class]]
-														                    proxyClass:[VBSelectableCellProxy class]
-                                                                          dependencies:dependencies];
+    _detailDeleteSongCellReuseId = 
+            [VBTableViewCellFactory reuseIdentifierWithRootType:VBRootCellTypeSwipable
+                                                     behaviours:@[[VBSongCellBehaviour class],
+                                                                  [VBRightDetailsButtonsCellBehaviour class],
+                                                                  [VBRightDeleteButtonCellBehaviour class], 
+                                                                  [VBUnavailableSongCellBehaviour class], 
+                                                                  [VBSongFavouritingBehavior class]]
+                                                     proxyClass:[VBSelectableCellProxy class]
+                                                   dependencies:dependencies];
 
     [self.tableView registerClass:[VBTableViewCellFactory class]
            forCellReuseIdentifier:_detailDeleteSongCellReuseId];
 
 
-    _detailSongCellReuseId = [VBTableViewCellFactory reuseIdentifierWithRootType:VBRootCellTypeSwipable
-                                                                      behaviours:@[[VBSongCellBehaviour class],[VBRightDetailsButtonsCellBehaviour class],[VBUnavailableSongCellBehaviour class], [VBSongFavouritingBehavior class]]
-															          proxyClass:[VBSelectableCellProxy class]
-                                                                    dependencies:dependencies];
+    _detailSongCellReuseId = 
+            [VBTableViewCellFactory reuseIdentifierWithRootType:VBRootCellTypeSwipable
+                                                     behaviours:@[[VBSongCellBehaviour class],
+                                                                  [VBRightDetailsButtonsCellBehaviour class],
+                                                                  [VBUnavailableSongCellBehaviour class], 
+                                                                  [VBSongFavouritingBehavior class]]
+                                                     proxyClass:[VBSelectableCellProxy class]
+                                                   dependencies:dependencies];
 
 
     [self.tableView registerClass:[VBTableViewCellFactory class]
@@ -36,3 +45,4 @@ This library uses the Factory pattern to dynamically create UITableViewCells.. e
 }
 
 ```
+
